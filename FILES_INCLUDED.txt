@@ -19,6 +19,7 @@ assets/strawberry-starts.webp
 assets/uploads/.gitkeep
 README.md
 NETLIFY_SETUP.md
+CONTACT_FORM_NETLIFY_GUIDE.md
 PAGES_CMS_SETUP.md
 CLIENT_EDITING_GUIDE.md
 FREE_PLATFORM_RECOMMENDATION.md

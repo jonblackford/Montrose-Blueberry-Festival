@@ -18,23 +18,35 @@ Netlify is the recommended free host for this version because it can deploy the 
    - Publish directory: `.`
 5. Deploy the site.
 
-## 3. Contact form setup
+## 3. Confirm the contact form is collecting submissions
 
-The homepage contact form already includes Netlify Forms attributes:
+The homepage now includes a full Netlify-ready contact form with customer contact fields, request details, optional delivery details, and a customer contact list opt-in.
+
+The form includes Netlify's required static HTML attributes:
 
 ```html
-<form name="contact" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+<form name="contact" id="contact-form" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="contact" />
+</form>
 ```
 
 After the first deploy:
 
 1. In Netlify, open the site dashboard.
-2. Go to Forms.
-3. Confirm that a form named `contact` was detected.
-4. Test the form from the live website.
-5. Optional: add email notifications in the Netlify Forms settings so new submissions are sent to the business email.
+2. Go to **Forms**.
+3. Confirm that a form named **contact** was detected.
+4. Open the live Netlify website and submit a test request.
+5. Return to **Forms → contact** and confirm the test submission appears.
+6. Optional: export submissions as a CSV for a customer/contact list.
 
-## 4. Custom domain
+## 4. Add email notifications
+
+1. In the Netlify site dashboard, go to **Forms**.
+2. Select the **contact** form.
+3. Go to **Form notifications**.
+4. Add an email notification for the business owner or staff member who should receive new requests.
+
+## 5. Custom domain
 
 Once the Netlify site is live, you can connect a custom domain from the Netlify dashboard under Domain Management.
 
@@ -42,4 +54,5 @@ Once the Netlify site is live, you can connect a custom domain from the Netlify 
 
 - This site does not require a paid CMS.
 - Netlify has free plan usage limits, so check the account dashboard occasionally.
+- The form must be tested on the live Netlify URL, not by opening `index.html` directly on a computer.
 - If form detection is disabled in Netlify, new forms will not process submissions.

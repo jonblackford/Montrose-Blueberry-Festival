@@ -143,12 +143,16 @@
     .info-item strong { display: block; color: var(--deep); }
     .info-item span, .info-item a { color: var(--muted); }
 
-    form { margin-top: 1.2rem; display: grid; gap: .95rem; }
+    form { margin-top: 1.2rem; display: grid; gap: 1rem; }
+    fieldset { border: 1px solid rgba(49, 92, 50, .14); border-radius: 20px; padding: 1rem; margin: 0; background: rgba(245, 239, 226, .36); display: grid; gap: .95rem; }
+    legend { padding: 0 .45rem; font-weight: 900; color: var(--deep); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .95rem; }
     label { display: block; font-weight: 800; color: var(--deep); font-size: .92rem; margin-bottom: .35rem; }
     input, select, textarea { width: 100%; border: 1px solid rgba(49, 92, 50, .2); border-radius: 15px; padding: .85rem .95rem; font: inherit; background: var(--white); color: var(--ink); }
     textarea { min-height: 150px; resize: vertical; }
     input:focus, select:focus, textarea:focus { outline: 3px solid rgba(111, 152, 87, .25); border-color: var(--forest); }
+    .checkbox-line { display: flex; align-items: flex-start; gap: .75rem; margin: 0; color: var(--muted); font-weight: 700; }
+    .checkbox-line input { width: auto; margin-top: .25rem; }
     .hidden { display: none; }
     .fine-print { color: var(--muted); font-size: .88rem; margin: 0; }
 
@@ -288,56 +292,128 @@
         <div class="form-card">
           <h2 data-text="contactTitle">Request flowers, plants, or information</h2>
           <p data-text="contactIntro">Send a message and the greenhouse can follow up with availability, floral requests, seasonal plant questions, or general information.</p>
-          <form name="contact" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+          <form name="contact" id="contact-form" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="subject" value="New website contact from Montrose Greenhouse — His & Herbs" />
             <p class="hidden"><label>Do not fill this out: <input name="bot-field" /></label></p>
-            <div class="form-row">
-              <div>
-                <label for="name">Name *</label>
-                <input id="name" name="name" type="text" autocomplete="name" required />
+
+            <fieldset>
+              <legend>Contact information</legend>
+              <div class="form-row">
+                <div>
+                  <label for="firstName">First name *</label>
+                  <input id="firstName" name="first_name" type="text" autocomplete="given-name" required />
+                </div>
+                <div>
+                  <label for="lastName">Last name *</label>
+                  <input id="lastName" name="last_name" type="text" autocomplete="family-name" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label for="email">Email *</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
+                </div>
+                <div>
+                  <label for="phone">Phone *</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label for="preferredContact">Preferred contact method</label>
+                  <select id="preferredContact" name="preferred_contact_method">
+                    <option value="Either">Either is fine</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Email">Email</option>
+                    <option value="Text">Text message</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="city">City</label>
+                  <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Montrose, Clio, Flushing, etc." />
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Request details</legend>
+              <div class="form-row">
+                <div>
+                  <label for="requestType">What can we help with? *</label>
+                  <select id="requestType" name="request_type" required>
+                    <option value="General question">General question</option>
+                    <option value="Fresh floral arrangement">Fresh floral arrangement</option>
+                    <option value="Funeral or sympathy flowers">Funeral or sympathy flowers</option>
+                    <option value="Wedding or event flowers">Wedding or event flowers</option>
+                    <option value="Plant availability">Plant availability</option>
+                    <option value="Greenhouse or garden help">Greenhouse or garden help</option>
+                    <option value="Seasonal products">Seasonal products</option>
+                    <option value="Gift or garden shop item">Gift or garden shop item</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="dateNeeded">Date needed</label>
+                  <input id="dateNeeded" name="date_needed" type="date" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label for="occasion">Occasion</label>
+                  <input id="occasion" name="occasion" type="text" placeholder="Birthday, sympathy, wedding, holiday, etc." />
+                </div>
+                <div>
+                  <label for="budget">Budget range</label>
+                  <select id="budget" name="budget_range">
+                    <option value="Not sure yet">Not sure yet</option>
+                    <option value="Under $50">Under $50</option>
+                    <option value="$50-$100">$50-$100</option>
+                    <option value="$100-$250">$100-$250</option>
+                    <option value="$250-$500">$250-$500</option>
+                    <option value="$500+">$500+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div>
+                  <label for="orderPreference">Pickup or delivery?</label>
+                  <select id="orderPreference" name="pickup_or_delivery">
+                    <option value="Not sure yet">Not sure yet</option>
+                    <option value="Pickup">Pickup</option>
+                    <option value="Delivery">Delivery, if available</option>
+                    <option value="Information only">Information only</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="recipientName">Recipient name, if floral delivery</label>
+                  <input id="recipientName" name="recipient_name" type="text" autocomplete="off" />
+                </div>
               </div>
               <div>
-                <label for="email">Email *</label>
-                <input id="email" name="email" type="email" autocomplete="email" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" />
+                <label for="deliveryAddress">Delivery address, if applicable</label>
+                <input id="deliveryAddress" name="delivery_address" type="text" autocomplete="street-address" placeholder="Street address, city, and any helpful delivery notes" />
               </div>
               <div>
-                <label for="requestType">What can we help with?</label>
-                <select id="requestType" name="request_type">
-                  <option value="General question">General question</option>
-                  <option value="Floral arrangement">Floral arrangement</option>
-                  <option value="Plant availability">Plant availability</option>
-                  <option value="Wedding or event flowers">Wedding or event flowers</option>
-                  <option value="Seasonal products">Seasonal products</option>
-                  <option value="Other">Other</option>
-                </select>
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" placeholder="Tell us what you are looking for, colors you like, plant questions, occasion details, delivery details, or anything else helpful." required></textarea>
               </div>
-            </div>
-            <div class="form-row">
-              <div>
-                <label for="preferredContact">Preferred contact method</label>
-                <select id="preferredContact" name="preferred_contact_method">
-                  <option value="Email">Email</option>
-                  <option value="Phone">Phone</option>
-                  <option value="Either">Either is fine</option>
-                </select>
-              </div>
-              <div>
-                <label for="dateNeeded">Date needed, if any</label>
-                <input id="dateNeeded" name="date_needed" type="date" />
-              </div>
-            </div>
-            <div>
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" placeholder="Tell us what you are looking for, colors you like, plant questions, occasion details, or anything else helpful." required></textarea>
-            </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Customer list</legend>
+              <label class="checkbox-line" for="customerList">
+                <input id="customerList" name="add_to_customer_contact_list" type="checkbox" value="Yes" />
+                <span>Add me to the customer contact list for seasonal reminders, greenhouse updates, or follow-up information.</span>
+              </label>
+              <label class="checkbox-line" for="consent">
+                <input id="consent" name="contact_permission" type="checkbox" value="Yes" required />
+                <span>I agree that Montrose Greenhouse — His & Herbs may contact me about this request by phone, text, or email. *</span>
+              </label>
+            </fieldset>
+
             <button class="btn btn-primary" type="submit">Send Request</button>
-            <p class="fine-print">This form is set up for Netlify Forms. Submissions will appear in the Netlify site dashboard after the site is deployed on Netlify with form detection enabled.</p>
+            <p class="fine-print">This form is connected to Netlify Forms. After deployment on Netlify, submissions will appear under Forms in the Netlify site dashboard and can be exported as a CSV.</p>
           </form>
         </div>
       </div>

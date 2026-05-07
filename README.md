@@ -1,6 +1,6 @@
 # Montrose Greenhouse — His & Herbs Website
 
-This is a static website designed for free hosting on Netlify and free customer editing through Pages CMS.
+This is a static website designed for free hosting on Netlify, full contact collection through Netlify Forms, and free customer editing through Pages CMS.
 
 ## What is included
 
@@ -12,6 +12,7 @@ This is a static website designed for free hosting on Netlify and free customer 
 - `netlify.toml` — Netlify hosting configuration
 - `PAGES_CMS_SETUP.md` — how to give the customer editing access
 - `NETLIFY_SETUP.md` — how to host the site and enable forms
+- `CONTACT_FORM_NETLIFY_GUIDE.md` — how the full contact form works and where submissions go
 - `CLIENT_EDITING_GUIDE.md` — simple instructions for the business owner
 
 ## Best free setup
