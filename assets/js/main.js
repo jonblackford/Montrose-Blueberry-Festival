@@ -89,7 +89,7 @@ function renderPage(page, data) {
   switch(page) {
     case 'home': renderHome(data); break;
     case 'schedule': renderSchedule(data); break;
-    case 'events': renderEventOverview(data); break;
+    case 'events': renderEventsPage(data); break;
     case 'forms': renderForms(data); break;
     case 'vendors': renderVendors(data); break;
     case 'sponsors': renderSponsors(data); break;
@@ -103,6 +103,122 @@ function renderHome(data) {
   renderQuickLinks(data);
   renderEventOverview(data);
   setupCountdowns();
+}
+
+function renderEventsPage(data) {
+  renderEventOverview(data);
+  setupEventCalendar(data);
+}
+
+function setupEventCalendar(data) {
+  const schedule = getSortedSchedule(data);
+  const calendarWrap = document.querySelector('[data-events-calendar]');
+  const listWrap = document.querySelector('[data-events-list]');
+  if (!calendarWrap || !listWrap) return;
+
+  const search = document.querySelector('[data-calendar-search]');
+  const categorySelect = document.querySelector('[data-calendar-category]');
+  const note = document.querySelector('[data-calendar-note]');
+  const calendarPanel = document.querySelector('[data-calendar-view]');
+  const listPanel = document.querySelector('[data-list-view]');
+  const title = document.querySelector('[data-calendar-title]');
+  const prev = document.querySelector('[data-calendar-prev]');
+  const next = document.querySelector('[data-calendar-next]');
+  const viewButtons = document.querySelectorAll('[data-view-toggle]');
+
+  const categories = unique(schedule.map(e => e.category)).sort();
+  categories.forEach(cat => categorySelect.insertAdjacentHTML('beforeend', `<option value="${escapeAttr(cat)}">${escapeHTML(cat)}</option>`));
+  if (note) note.textContent = data.site.announcement || 'Event information can be updated in data/site-data.json or through the content editor.';
+
+  let currentMonth = new Date((schedule[0]?.date || new Date().toISOString().slice(0,10)) + 'T12:00:00');
+  currentMonth.setDate(1);
+  let view = 'calendar';
+
+  const filteredEvents = () => {
+    const q = (search?.value || '').toLowerCase().trim();
+    const cat = categorySelect?.value || 'all';
+    return schedule.filter(event => {
+      const haystack = `${event.title} ${event.time} ${event.location} ${event.category} ${event.description}`.toLowerCase();
+      return (cat === 'all' || event.category === cat) && (!q || haystack.includes(q));
+    });
+  };
+
+  const update = () => {
+    const events = filteredEvents();
+    renderEventsCalendar(events, currentMonth, calendarWrap, title);
+    renderScheduleList(events, '[data-events-list]');
+    const showCalendar = view === 'calendar';
+    calendarPanel.hidden = !showCalendar;
+    listPanel.hidden = showCalendar;
+    viewButtons.forEach(button => {
+      const active = button.dataset.viewToggle === view;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  };
+
+  prev?.addEventListener('click', () => {
+    currentMonth.setMonth(currentMonth.getMonth() - 1);
+    update();
+  });
+  next?.addEventListener('click', () => {
+    currentMonth.setMonth(currentMonth.getMonth() + 1);
+    update();
+  });
+  [search, categorySelect].forEach(el => el?.addEventListener('input', update));
+  viewButtons.forEach(button => button.addEventListener('click', () => {
+    view = button.dataset.viewToggle;
+    update();
+  }));
+
+  update();
+}
+
+function renderEventsCalendar(events, monthDate, wrap, titleEl) {
+  const month = new Date(monthDate);
+  month.setDate(1);
+  const monthIndex = month.getMonth();
+  const year = month.getFullYear();
+  titleEl.textContent = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(month);
+
+  const monthEvents = events.filter(event => {
+    const eventDate = new Date(event.date + 'T12:00:00');
+    return eventDate.getMonth() === monthIndex && eventDate.getFullYear() === year;
+  });
+  const byDate = groupBy(monthEvents, 'date');
+
+  const start = new Date(year, monthIndex, 1);
+  start.setDate(start.getDate() - start.getDay());
+  const end = new Date(year, monthIndex + 1, 0);
+  end.setDate(end.getDate() + (6 - end.getDay()));
+
+  const weekdayHeadings = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    .map(day => `<div class="calendar-weekday">${day}</div>`).join('');
+
+  const cells = [];
+  for (let day = new Date(start); day <= end; day.setDate(day.getDate() + 1)) {
+    const dateKey = toDateKey(day);
+    const inMonth = day.getMonth() === monthIndex;
+    const dayEvents = byDate[dateKey] || [];
+    cells.push(`<article class="calendar-day ${inMonth ? '' : 'muted-month'} ${dayEvents.length ? 'has-events' : ''}">
+      <div class="calendar-date">
+        <span>${day.getDate()}</span>
+        ${dayEvents.length ? `<strong>${dayEvents.length} event${dayEvents.length === 1 ? '' : 's'}</strong>` : ''}
+      </div>
+      <div class="calendar-events">
+        ${dayEvents.map(event => `<a class="calendar-event" href="schedule.html#${escapeAttr(event.id)}">
+          <span>${escapeHTML(event.time)}</span>
+          <strong>${escapeHTML(event.title)}</strong>
+        </a>`).join('')}
+      </div>
+    </article>`);
+  }
+
+  document.querySelector('[data-calendar-empty]')?.remove();
+  wrap.innerHTML = weekdayHeadings + cells.join('');
+  if (!monthEvents.length) {
+    wrap.insertAdjacentHTML('afterend', '<div class="empty-state calendar-empty" data-calendar-empty>No events match the filters for this month.</div>');
+  }
 }
 
 function renderQuickLinks(data) {
@@ -132,7 +248,7 @@ function renderEventOverview(data) {
 }
 
 function renderSchedule(data) {
-  const schedule = [...data.schedule].sort((a,b) => (a.date + a.sortTime).localeCompare(b.date + b.sortTime));
+  const schedule = getSortedSchedule(data);
   const daySelect = document.querySelector('[data-event-day]');
   const categorySelect = document.querySelector('[data-event-category]');
   const search = document.querySelector('[data-event-search]');
@@ -156,8 +272,8 @@ function renderSchedule(data) {
   update();
 }
 
-function renderScheduleList(events) {
-  const wrap = document.querySelector('[data-schedule]');
+function renderScheduleList(events, selector = '[data-schedule]') {
+  const wrap = document.querySelector(selector);
   if (!wrap) return;
   if (!events.length) {
     wrap.innerHTML = `<div class="empty-state">No events match those filters.</div>`;
@@ -321,6 +437,8 @@ function showLoadError(error) {
   main.insertAdjacentHTML('afterbegin', `<div class="container"><div class="notice">Could not load site data. If you opened this file directly from your computer, run it through a local server or publish to GitHub Pages. ${escapeHTML(error.message)}</div></div>`);
 }
 
+function getSortedSchedule(data) { return [...(data.schedule || [])].sort((a,b) => `${a.date}${a.sortTime || a.time || ''}`.localeCompare(`${b.date}${b.sortTime || b.time || ''}`)); }
+function toDateKey(date) { return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`; }
 function unique(arr) { return [...new Set(arr.filter(Boolean))]; }
 function groupBy(arr, key) { return arr.reduce((acc, item) => { (acc[item[key]] ||= []).push(item); return acc; }, {}); }
 function digitsOnly(str) { return String(str || '').replace(/[^+\d]/g, ''); }

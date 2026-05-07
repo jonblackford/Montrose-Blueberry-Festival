@@ -2,6 +2,13 @@
 
 ## Fastest updates
 
+### Use the visual content editor
+
+Open `content-manager.html` after publishing or while running the site locally. From there you can add an event, edit an existing event, delete an event, add a form, validate the JSON, and download a replacement `site-data.json` file. Replace `data/site-data.json` in GitHub with the downloaded file.
+
+The Events page calendar and list view both use the same `schedule` array, so one event update changes both views automatically.
+
+
 ### Change festival dates
 
 Edit this section in `data/site-data.json`:
@@ -13,7 +20,7 @@ Edit this section in `data/site-data.json`:
 }
 ```
 
-### Add an event
+### Add or edit an event manually
 
 Add a new object inside the `schedule` array:
 
@@ -55,3 +62,16 @@ Use:
 - Dates should use `YYYY-MM-DD`.
 - `sortTime` should use 24-hour time like `08:00`, `13:30`, or `20:00`.
 - Do not delete the main section names like `schedule`, `forms`, `vendors`, or `sponsors`.
+
+
+## Calendar behavior
+
+- The Events page opens in calendar view by default.
+- Visitors can switch to list view using the Calendar/List toggle.
+- Calendar events come from the `schedule` array in `data/site-data.json`.
+- Each event needs a `date` in `YYYY-MM-DD` format.
+- Use `sortTime` in 24-hour format so events display in the correct order within each day.
+
+## Downloadable forms
+
+To update a PDF or application form, upload the file into the `downloads/` folder and update the matching form entry in `data/site-data.json`. For example, if the file is named `parade-application-2027.pdf`, the URL should be `downloads/parade-application-2027.pdf`.

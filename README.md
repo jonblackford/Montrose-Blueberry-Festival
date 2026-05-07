@@ -6,7 +6,7 @@ A modern, multi-page, GitHub Pages-ready static site for the Montrose Blueberry 
 
 - `index.html` — homepage
 - `schedule.html` — filterable event schedule
-- `events.html` — major festival events and traditions
+- `events.html` — calendar-first event browser with a list-view toggle
 - `forms.html` — applications, registrations, and downloadable forms
 - `vendors.html` — searchable vendor directory
 - `sponsors.html` — sponsor recognition
@@ -54,9 +54,9 @@ Example:
 
 ## Optional content manager
 
-Open `content-manager.html` after the site is running. It lets you add events or forms and download a new `site-data.json` file.
+Open `content-manager.html` after the site is running. It lets you add new events, edit existing events, delete events, add forms, and download a new `site-data.json` file.
 
-Because GitHub Pages is static hosting, the content manager cannot save changes directly to GitHub by itself. You still need to upload or commit the updated JSON file.
+Because GitHub Pages is static hosting, the content manager cannot save changes directly to GitHub by itself. You still need to upload or commit the updated JSON file. Once the JSON is replaced, the calendar view, list view, schedule page, and form downloads update automatically.
 
 ## Publishing to GitHub Pages
 

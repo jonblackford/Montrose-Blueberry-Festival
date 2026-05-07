@@ -36,7 +36,9 @@
         <div class="manager-main">
           <div class="tabs" role="tablist">
             <button class="tab active" data-editor-tab="event">Add Event</button>
+            <button class="tab" data-editor-tab="manage-event">Edit Events</button>
             <button class="tab" data-editor-tab="form">Add Form</button>
+            <button class="tab" data-editor-tab="manage-form">Edit Forms</button>
             <button class="tab" data-editor-tab="json">Raw JSON</button>
           </div>
           <section class="editor-section active" data-editor-section="event">
@@ -51,6 +53,32 @@
             </div>
             <button class="btn btn-primary" data-add-event>Add event to JSON</button>
           </section>
+
+          <section class="editor-section" data-editor-section="manage-event">
+            <p class="muted">Choose an existing event, make changes, then download the updated JSON file. The calendar and list view both update from this same event data.</p>
+            <div class="editor-grid">
+              <label class="span-2">Find an event
+                <input data-event-filter placeholder="Search by title, date, category, or location" />
+              </label>
+              <label class="span-2">Choose event to edit
+                <select data-event-select>
+                  <option value="">Select an event</option>
+                </select>
+              </label>
+              <label>Event title <input data-edit-event="title" placeholder="Blueberry Baking Contest" /></label>
+              <label>Date <input data-edit-event="date" type="date" /></label>
+              <label>Display time <input data-edit-event="time" placeholder="2:00 PM–4:00 PM" /></label>
+              <label>Sort time <input data-edit-event="sortTime" type="time" /></label>
+              <label>Location <input data-edit-event="location" placeholder="Lion's Park" /></label>
+              <label>Category <input data-edit-event="category" placeholder="Kids & Family" /></label>
+              <label class="span-2 checkbox-label"><input data-edit-event="featured" type="checkbox" /> Feature this event in internal data</label>
+              <label class="span-2">Description <textarea data-edit-event="description" rows="4" placeholder="Short public description..."></textarea></label>
+            </div>
+            <div class="button-row">
+              <button class="btn btn-primary" data-save-event>Save event changes</button>
+              <button class="btn btn-secondary" data-delete-event>Delete selected event</button>
+            </div>
+          </section>
           <section class="editor-section" data-editor-section="form">
             <div class="editor-grid">
               <label>Form title <input data-new-form="title" placeholder="2027 Parade Application" /></label>
@@ -61,6 +89,31 @@
               <label class="span-2">Description <textarea data-new-form="description" rows="4" placeholder="Short description..."></textarea></label>
             </div>
             <button class="btn btn-primary" data-add-form>Add form to JSON</button>
+          </section>
+
+          <section class="editor-section" data-editor-section="manage-form">
+            <p class="muted">Use this section to replace downloadable PDFs, rename forms, update deadlines, or mark forms as coming soon.</p>
+            <div class="editor-grid">
+              <label class="span-2">Find a form
+                <input data-form-filter placeholder="Search by title, category, status, or URL" />
+              </label>
+              <label class="span-2">Choose form to edit
+                <select data-form-select>
+                  <option value="">Select a form</option>
+                </select>
+              </label>
+              <label>Form title <input data-edit-form="title" placeholder="2027 Parade Application" /></label>
+              <label>Category <input data-edit-form="category" placeholder="Vendors" /></label>
+              <label>Date or deadline <input data-edit-form="date" type="date" /></label>
+              <label>Status <select data-edit-form="status"><option>Download</option><option>Online</option><option>Coming Soon</option></select></label>
+              <label class="span-2">URL <input data-edit-form="url" placeholder="downloads/parade-2027.pdf" /></label>
+              <label class="span-2">Button text <input data-edit-form="button" placeholder="Download PDF" /></label>
+              <label class="span-2">Description <textarea data-edit-form="description" rows="4" placeholder="Short description..."></textarea></label>
+            </div>
+            <div class="button-row">
+              <button class="btn btn-primary" data-save-form>Save form changes</button>
+              <button class="btn btn-secondary" data-delete-form>Delete selected form</button>
+            </div>
           </section>
           <section class="editor-section" data-editor-section="json">
             <div class="button-row top-row">
