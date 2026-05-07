@@ -1,0 +1,93 @@
+{
+  "businessName": "Montrose Greenhouse — His & Herbs",
+  "tagline": "Full-service florist & four-season greenhouse",
+  "heroTitle": "Plants, flowers & garden inspiration for every season.",
+  "heroText": "Montrose Greenhouse — His & Herbs is a full-service florist and seasonal greenhouse in Montrose, Michigan, growing and selling exceptional plants of all types while helping customers find the right flowers, herbs, gifts, and greenery for their homes, gardens, and special moments.",
+  "announcement": "Open all four seasons. Call for current hours and seasonal availability.",
+  "primaryButtonText": "Call the Greenhouse",
+  "secondaryButtonText": "Plan Your Visit",
+  "phone": "(810) 639-4750",
+  "phoneHref": "tel:+18106394750",
+  "address": "11440 Vienna Rd, Montrose, MI 48457",
+  "mapUrl": "https://www.google.com/maps/search/?api=1&query=11440%20Vienna%20Rd%2C%20Montrose%2C%20MI%2048457",
+  "hoursNote": "Open all four seasons. Please call for current seasonal hours.",
+  "facebookUrl": "https://www.facebook.com/p/Montrose-Greenhouse-100063505872551/",
+  "aboutTitle": "A local greenhouse with a florist’s touch.",
+  "aboutText": "From spring annuals and hanging baskets to herbs, perennials, fresh floral work, gifts, and seasonal greenhouse favorites, Montrose Greenhouse — His & Herbs is built around friendly service and beautiful, healthy plants. Visit for inspiration, advice, and a relaxed shopping experience surrounded by color.",
+  "aboutImage": "assets/storefront.webp",
+  "servicesTitle": "What we offer",
+  "servicesIntro": "A simple, customer-friendly overview of the core areas of the business. Update this list any time as products and seasons change.",
+  "services": [
+    {
+      "title": "Full-Service Florist",
+      "text": "Fresh floral arrangements for everyday moments, sympathy, celebrations, holidays, and special requests.",
+      "icon": "💐"
+    },
+    {
+      "title": "Seasonal Greenhouse",
+      "text": "Annuals, perennials, herbs, hanging baskets, garden starts, mums, and seasonal favorites throughout the year.",
+      "icon": "🌿"
+    },
+    {
+      "title": "Plants & Garden Help",
+      "text": "Friendly help choosing plants, pairing colors, planning containers, and finding what fits your space.",
+      "icon": "🪴"
+    },
+    {
+      "title": "Gifts & Garden Shop",
+      "text": "A charming shop atmosphere with seeds, garden supplies, bulbs, planters, and giftable finds.",
+      "icon": "🎁"
+    }
+  ],
+  "seasonTitle": "Seasonal highlights",
+  "seasonIntro": "Use this area for what customers should look for during each part of the year.",
+  "seasons": [
+    {
+      "title": "Spring",
+      "text": "Bedding plants, garden starts, herbs, hanging baskets, porch pots, and early-season color."
+    },
+    {
+      "title": "Summer",
+      "text": "Pollinator-friendly plants, container refreshes, perennials, herbs, and bright greenhouse finds."
+    },
+    {
+      "title": "Fall",
+      "text": "Mums, autumn color, pumpkins and gourds when available, fall containers, and cozy garden accents."
+    },
+    {
+      "title": "Winter",
+      "text": "Holiday greens, floral arrangements, gifts, bulbs, indoor inspiration, and seasonal displays."
+    }
+  ],
+  "galleryTitle": "A look around the greenhouse",
+  "galleryIntro": "Photos can be swapped or added through the CMS by updating the gallery list.",
+  "gallery": [
+    {
+      "image": "assets/greenhouse-mums.webp",
+      "alt": "Rows of colorful mums outside Montrose Greenhouse"
+    },
+    {
+      "image": "assets/inside-greenhouse-plants.webp",
+      "alt": "Greenhouse tables filled with potted plants and herbs"
+    },
+    {
+      "image": "assets/hanging-baskets.webp",
+      "alt": "Hanging flower baskets and colorful greenhouse displays"
+    },
+    {
+      "image": "assets/garden-shop.webp",
+      "alt": "Garden shop shelves with seeds, bulbs, and supplies"
+    },
+    {
+      "image": "assets/strawberry-starts.webp",
+      "alt": "Strawberry plants in trays"
+    },
+    {
+      "image": "assets/outdoor-plant-tables.webp",
+      "alt": "Outdoor plant tables and greenhouse displays"
+    }
+  ],
+  "contactTitle": "Request flowers, plants, or information",
+  "contactIntro": "Send a message and the greenhouse can follow up with availability, floral requests, seasonal plant questions, or general information.",
+  "footerText": "Montrose Greenhouse — His & Herbs grows and sells exceptional plants of all types and serves customers as a full-service florist in Montrose, Michigan."
+}

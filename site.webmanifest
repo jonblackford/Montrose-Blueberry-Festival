@@ -1,8 +1,7 @@
 {
   "name": "Montrose Greenhouse — His & Herbs",
-  "short_name": "Montrose Greenhouse",
-  "description": "Full-service florist and seasonal greenhouse in Montrose, Michigan.",
-  "start_url": "./",
+  "short_name": "His & Herbs",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#fffaf0",
   "theme_color": "#315c32",

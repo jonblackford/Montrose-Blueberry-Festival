@@ -1,22 +1,25 @@
 # Montrose Greenhouse — His & Herbs Website
 
-This is a static website package for Montrose Greenhouse — His & Herbs in Montrose, Michigan.
+This is a static website designed for free hosting on Netlify and free customer editing through Pages CMS.
 
-## Recommended hosting
+## What is included
 
-For a client-editable version, host this through **CloudCannon** and connect it to the GitHub repository. The site remains static and fast, but the customer can edit approved text/image areas visually without touching code.
+- `index.html` — the public website
+- `content/site.json` — editable site content
+- `.pages.yml` — Pages CMS configuration
+- `assets/` — photos, favicon, and upload folder
+- `thank-you/index.html` — contact form confirmation page
+- `netlify.toml` — Netlify hosting configuration
+- `PAGES_CMS_SETUP.md` — how to give the customer editing access
+- `NETLIFY_SETUP.md` — how to host the site and enable forms
+- `CLIENT_EDITING_GUIDE.md` — simple instructions for the business owner
 
-## Included
+## Best free setup
 
-- `index.html` — homepage
-- `thank-you/index.html` — contact form success page
-- `assets/` — site images and favicon
-- `cloudcannon.config.yml` — CloudCannon visual editing setup
-- `netlify.toml` — optional Netlify hosting configuration
-- `CLIENT_EDITING_GUIDE.md` — simple guide for the business owner
-- `CLOUDCANNON_SETUP.md` — setup instructions for Jon/developer
-- `CONTACT_FORM_SETUP.md` — form setup instructions
+Use:
 
-## Contact form
+1. GitHub repository for the files
+2. Netlify for hosting and contact form handling
+3. Pages CMS for easy editing of the text, services, seasonal highlights, and photos
 
-The form is built as plain HTML. It is ready for CloudCannon Forms when hosted on CloudCannon. It also includes Netlify Forms attributes if you choose to host through Netlify instead.
+The customer edits the website by signing into Pages CMS with GitHub. When they save changes, Pages CMS commits the update to the GitHub repo and Netlify redeploys the site.

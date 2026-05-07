@@ -1,0 +1,136 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+  rename: safe
+  extensions: [png, jpg, jpeg, webp, gif, pdf]
+
+content:
+  - name: site
+    label: Website Content
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: businessName
+        label: Business Name
+        type: string
+        required: true
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: heroTitle
+        label: Hero Title
+        type: string
+        required: true
+      - name: heroText
+        label: Hero Text
+        type: text
+      - name: announcement
+        label: Announcement / Hours Note
+        type: string
+      - name: primaryButtonText
+        label: Primary Button Text
+        type: string
+      - name: secondaryButtonText
+        label: Secondary Button Text
+        type: string
+      - name: phone
+        label: Phone Number
+        type: string
+      - name: phoneHref
+        label: Phone Link
+        type: string
+        description: Use tel:+18106394750 format.
+      - name: address
+        label: Address
+        type: string
+      - name: mapUrl
+        label: Map Link
+        type: string
+      - name: hoursNote
+        label: Hours Note
+        type: text
+      - name: facebookUrl
+        label: Facebook Link
+        type: string
+      - name: aboutTitle
+        label: About Section Title
+        type: string
+      - name: aboutText
+        label: About Section Text
+        type: text
+      - name: aboutImage
+        label: About Image
+        type: image
+      - name: servicesTitle
+        label: Services Title
+        type: string
+      - name: servicesIntro
+        label: Services Intro
+        type: text
+      - name: services
+        label: Services
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: icon
+            label: Icon / Emoji
+            type: string
+          - name: title
+            label: Service Title
+            type: string
+          - name: text
+            label: Service Description
+            type: text
+      - name: seasonTitle
+        label: Seasonal Section Title
+        type: string
+      - name: seasonIntro
+        label: Seasonal Intro
+        type: text
+      - name: seasons
+        label: Seasonal Highlights
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Season Name
+            type: string
+          - name: text
+            label: Season Description
+            type: text
+      - name: galleryTitle
+        label: Gallery Title
+        type: string
+      - name: galleryIntro
+        label: Gallery Intro
+        type: text
+      - name: gallery
+        label: Gallery Photos
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+        fields:
+          - name: image
+            label: Image
+            type: image
+          - name: alt
+            label: Image Description / Alt Text
+            type: string
+      - name: contactTitle
+        label: Contact Section Title
+        type: string
+      - name: contactIntro
+        label: Contact Section Intro
+        type: text
+      - name: footerText
+        label: Footer Text
+        type: text

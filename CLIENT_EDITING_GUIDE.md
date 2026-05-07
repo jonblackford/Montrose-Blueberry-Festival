@@ -1,32 +1,32 @@
-# Client Editing Guide
+# Simple Website Editing Guide
 
-This guide is for Montrose Greenhouse — His & Herbs staff.
+This website is designed so you can update basic information without touching website code.
 
-## What you can safely update
+## How to edit the site
 
-- Main homepage wording
-- Seasonal product descriptions
+1. Log in to Pages CMS.
+2. Open the `His-Herbs` website repository.
+3. Click **Website Content**.
+4. Update the fields you need to change.
+5. Save.
+6. Wait a minute or two for the live website to update.
+
+## What to update regularly
+
+- Current hours or seasonal hours note
+- Plant availability
+- Seasonal highlights
+- Gallery photos
 - Services offered
-- Gallery captions
-- Photos
-- Phone/address/social text if it changes
-- Call-to-action wording
+- Floral request wording
 
-## What to avoid changing without help
+## Photo tips
 
-- Contact form field names
-- The map embed
-- Website navigation links
-- Hidden form fields
-- Files ending in `.yml`, `.toml`, or `.json`
+- Use clear, bright photos.
+- Landscape photos work best for wide sections.
+- Keep photos under about 1–2 MB when possible.
+- Add short descriptions for each photo so the website remains accessible.
 
-## Suggested seasonal updates
+## Contact form submissions
 
-- Spring: annuals, hanging baskets, herbs, vegetable starts, strawberries
-- Summer: porch pots, pollinator plants, bright annuals
-- Fall: mums, pumpkins, fall décor, autumn planters
-- Winter: holiday greenery, florist orders, gifts, bulbs, indoor plants
-
-## After editing
-
-Preview the page first. If everything looks correct, publish the update.
+Contact form submissions are handled in Netlify. If email notifications are turned on, new requests can also be sent directly to the business email.

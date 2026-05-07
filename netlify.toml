@@ -1,8 +1,18 @@
 [build]
   publish = "."
+  command = ""
 
-# This keeps the site extensionless and makes the thank-you page work cleanly.
+[build.processing]
+  skip_processing = false
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
 [[redirects]]
-  from = "/thank-you"
+  from = "/thanks"
   to = "/thank-you/"
   status = 301
