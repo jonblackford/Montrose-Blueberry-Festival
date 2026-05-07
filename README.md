@@ -1,26 +1,83 @@
-# Montrose Blueberry Festival — Modern Website Redesign
+# Montrose Blueberry Festival Website
 
-This is a GitHub Pages-ready static website concept for the Montrose Blueberry Festival.
+A modern, multi-page, GitHub Pages-ready static site for the Montrose Blueberry Festival.
 
-## Files
+## Pages included
 
-- `index.html` — site structure and content
-- `styles.css` — responsive modern styling
-- `script.js` — schedule filters, vendor search, countdown, mobile menu, and reveal animations
-- `README.md` — publishing notes
+- `index.html` — homepage
+- `schedule.html` — filterable event schedule
+- `events.html` — major festival events and traditions
+- `forms.html` — applications, registrations, and downloadable forms
+- `vendors.html` — searchable vendor directory
+- `sponsors.html` — sponsor recognition
+- `news.html` — festival updates
+- `contact.html` — contact information and email helper
+- `content-manager.html` — local helper for editing the site data
 
-## How to publish on GitHub Pages
+## How to edit events, forms, vendors, sponsors, and news
 
-1. Create a new GitHub repository.
-2. Upload all files from this folder into the root of the repository.
-3. Go to **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/root` folder.
-6. Save and wait for GitHub Pages to publish the site.
+Most of the website content is stored in:
 
-## Notes
+```text
+data/site-data.json
+```
 
-- This version uses the current festival site’s public event, sponsor, vendor, application, and contact information as starter content.
-- Images are referenced from the current public festival website. For a permanent production site, download approved images from the festival and place them in a local `assets/` folder, then update the image paths.
-- The contact form was intentionally replaced with email and phone buttons because GitHub Pages does not process forms by itself. To add a working form, use a service like Formspree, Basin, Netlify Forms, or a custom backend.
-- The application links currently point to the official application page. For production, replace each application item link with the direct PDF or registration link.
+Open that file and edit the matching section:
+
+- `schedule` — add or change events
+- `forms` — add, remove, or replace downloadable forms
+- `vendors` — update marketplace, food, and special vendor lists
+- `sponsors` — update sponsor groups
+- `news` — update news cards
+- `eventOverview` — update the main event cards
+
+## How to update a downloadable form
+
+1. Add the new file to the `downloads/` folder.
+2. Open `data/site-data.json`.
+3. Find the form inside the `forms` array.
+4. Change the `url` value to the new file path.
+
+Example:
+
+```json
+{
+  "title": "2027 Super Parade Application",
+  "category": "Vendors",
+  "date": "2027-08-14",
+  "status": "Download",
+  "description": "Application for parade entries.",
+  "url": "downloads/parade-2027.pdf",
+  "button": "Download PDF"
+}
+```
+
+## Optional content manager
+
+Open `content-manager.html` after the site is running. It lets you add events or forms and download a new `site-data.json` file.
+
+Because GitHub Pages is static hosting, the content manager cannot save changes directly to GitHub by itself. You still need to upload or commit the updated JSON file.
+
+## Publishing to GitHub Pages
+
+1. Upload all files to your GitHub repository.
+2. Go to **Settings → Pages**.
+3. Set the source to the main branch and root folder.
+4. Save.
+5. Wait for GitHub Pages to publish.
+
+## Local preview
+
+Because the site loads JSON with JavaScript, preview it through a local server instead of double-clicking the HTML file.
+
+From the folder, run:
+
+```bash
+python3 -m http.server 8080
+```
+
+Then open:
+
+```text
+http://localhost:8080
+```

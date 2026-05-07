@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vendors | Montrose Blueberry Festival</title>
+  <meta name="description" content="Marketplace, food, and special vendors." />
+  <meta name="theme-color" content="#2f2e83" />
+  <link rel="icon" href="assets/img/blueberry-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="vendors">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" data-header></header>
+  <main id="main">
+
+    <section class="page-hero compact">
+      <div class="container">
+        <p class="eyebrow">Marketplace & Food</p>
+        <h1>Vendors</h1>
+        <p class="lead">Search marketplace, food, and special vendors. Replace the list each year in the data file.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="toolbar vendor-toolbar">
+          <label>Search vendors <input type="search" data-vendor-search placeholder="Search name, booth, food..." /></label>
+          <label>Type <select data-vendor-type><option value="all">All vendor types</option><option value="marketplace">Marketplace</option><option value="food">Food</option><option value="special">Special vendors</option></select></label>
+        </div>
+        <div class="notice" data-vendor-note></div>
+        <div class="vendor-sections" data-vendors></div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer" data-footer></footer>
+  <script src="assets/js/main.js"></script>
+  
+</body>
+</html>

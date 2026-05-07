@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forms & Applications | Montrose Blueberry Festival</title>
+  <meta name="description" content="Downloadable applications, forms, and registrations." />
+  <meta name="theme-color" content="#2f2e83" />
+  <link rel="icon" href="assets/img/blueberry-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="forms">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" data-header></header>
+  <main id="main">
+
+    <section class="page-hero compact">
+      <div class="container">
+        <p class="eyebrow">Applications & Downloads</p>
+        <h1>Forms, Registrations & Applications</h1>
+        <p class="lead">All downloadable files are managed in <code>data/site-data.json</code>. Upload new PDFs into <code>downloads/</code> and update the link.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="toolbar forms-toolbar">
+          <label>Search forms <input type="search" data-form-search placeholder="Search race, parade, sponsor..." /></label>
+          <label>Category <select data-form-category><option value="all">All categories</option></select></label>
+          <a class="btn btn-small" href="content-manager.html">Open content editor</a>
+        </div>
+        <div class="forms-grid" data-forms></div>
+      </div>
+    </section>
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Editing guide</p>
+          <h2>How to replace a downloadable form</h2>
+        </div>
+        <div class="steps-grid">
+          <article><span>1</span><h3>Add the file</h3><p>Put the new PDF, image, or document in the <code>downloads</code> folder.</p></article>
+          <article><span>2</span><h3>Update the link</h3><p>Open <code>data/site-data.json</code> and change the form's <code>url</code> to something like <code>downloads/parade-2027.pdf</code>.</p></article>
+          <article><span>3</span><h3>Commit to GitHub</h3><p>Commit the changed data file and new download. GitHub Pages will publish the update automatically.</p></article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer" data-footer></footer>
+  <script src="assets/js/main.js"></script>
+  
+</body>
+</html>
