@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-<title id="title">Blueberry Festival mark</title><desc id="desc">A cluster of blueberries with a leaf.</desc>
-<defs><linearGradient id="b" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#6654d9"/><stop offset="1" stop-color="#17124f"/></linearGradient><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#8fd694"/><stop offset="1" stop-color="#3d8b62"/></linearGradient></defs>
-<rect width="512" height="512" rx="128" fill="#f5f3ff"/>
-<path d="M330 80c-49 10-83 42-101 88 55-2 101-25 137-75 5-7-1-15-10-14-9 1-18 1-26 1z" fill="url(#g)"/>
-<circle cx="214" cy="250" r="116" fill="url(#b)"/><circle cx="316" cy="300" r="102" fill="#34278f"/><circle cx="150" cy="329" r="78" fill="#5144c5"/>
-<g fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" opacity=".72"><path d="M177 201c18-17 53-23 80-8"/><path d="M290 256c17-11 46-12 66 5"/><path d="M119 306c13-10 34-12 49-4"/></g>
-<g fill="#f4c95d"><circle cx="210" cy="167" r="10"/><circle cx="337" cy="218" r="8"/><circle cx="126" cy="258" r="7"/></g>
-</svg>

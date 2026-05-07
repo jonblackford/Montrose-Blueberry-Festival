@@ -3,16 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Montrose Greenhouse — His & Herbs | Florist & Seasonal Greenhouse in Montrose, MI</title>
-  <meta name="description" content="Montrose Greenhouse — His & Herbs is a full-service florist and seasonal greenhouse in Montrose, Michigan, open all four seasons with plants, flowers, herbs, gifts, and garden inspiration." />
+  <title>Thank You | Montrose Greenhouse — His & Herbs</title>
+  <meta name="description" content="Thank you for contacting Montrose Greenhouse — His & Herbs." />
   <meta name="theme-color" content="#315c32" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="manifest" href="site.webmanifest" />
-  <meta property="og:title" content="Montrose Greenhouse — His & Herbs" />
-  <meta property="og:description" content="Full-service florist and seasonal greenhouse in Montrose, MI. Exceptional plants, floral arrangements, herbs, gifts, and four-season garden inspiration." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/storefront.webp" />
-  <link rel="preload" href="assets/storefront.webp" as="image" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <style>
     :root {
       --forest: #315c32;
@@ -411,6 +405,91 @@
       background: var(--sage);
     }
 
+
+    .contact-section {
+      background: linear-gradient(180deg, #eef5ea, var(--cream));
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(1rem, 4vw, 2rem);
+      align-items: start;
+    }
+    .contact-intro {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid rgba(49, 92, 50, .12);
+      box-shadow: 0 16px 40px rgba(23, 50, 25, .08);
+      padding: clamp(1.4rem, 4vw, 2.35rem);
+      position: sticky;
+      top: 96px;
+    }
+    .contact-intro h2 { font-size: clamp(2rem, 4vw, 3.35rem); margin-bottom: .75rem; }
+    .contact-intro p { color: var(--muted); margin: 0 0 1rem; }
+    .contact-form-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid rgba(49, 92, 50, .12);
+      box-shadow: var(--shadow);
+      padding: clamp(1.4rem, 4vw, 2.35rem);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .field { display: grid; gap: .4rem; }
+    .field.full { grid-column: 1 / -1; }
+    .field label {
+      font-weight: 850;
+      color: var(--deep);
+      font-size: .94rem;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(49, 92, 50, .22);
+      background: #fffdfa;
+      border-radius: 16px;
+      padding: .9rem 1rem;
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+      transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .field textarea { min-height: 160px; resize: vertical; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--forest);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(111, 152, 87, .16);
+    }
+    .form-note {
+      color: var(--muted);
+      font-size: .9rem;
+      margin: 1rem 0 0;
+    }
+    .hidden-field {
+      position: absolute;
+      left: -9999px;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+    .thank-you-card {
+      width: min(760px, calc(100% - 2rem));
+      margin: clamp(4rem, 10vw, 7rem) auto;
+      background: var(--white);
+      border-radius: 30px;
+      padding: clamp(2rem, 5vw, 4rem);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .thank-you-card h1 { max-width: none; font-size: clamp(2.4rem, 6vw, 4.6rem); }
+    .thank-you-card p { color: var(--muted); font-size: 1.1rem; }
+
     .cta {
       padding: 0 0 clamp(3.5rem, 7vw, 6rem);
     }
@@ -447,13 +526,14 @@
     footer a { color: var(--white); }
 
     @media (max-width: 980px) {
-      .hero-inner, .about-grid, .visit-grid { grid-template-columns: 1fr; }
+      .hero-inner, .about-grid, .visit-grid, .contact-layout { grid-template-columns: 1fr; }
       .hero-photos { min-height: 500px; }
       .photo-main { inset: 0 0 5.5rem 2rem; }
       .services-grid, .season-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .gallery-item.large { grid-column: span 2; grid-row: span 1; }
       .cta-card { grid-template-columns: 1fr; }
+      .contact-intro { position: static; }
     }
     @media (max-width: 760px) {
       .menu-btn { display: inline-flex; }
@@ -485,234 +565,21 @@
       .feature-list, .services-grid, .season-strip, .gallery-grid { grid-template-columns: 1fr; }
       .gallery-item.large { grid-column: auto; }
       .gallery-grid { grid-auto-rows: 260px; }
+      .form-grid { grid-template-columns: 1fr; }
     }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Montrose Greenhouse — His & Herbs",
-    "image": "assets/storefront.webp",
-    "telephone": "+1-810-639-4750",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "11440 Vienna Rd",
-      "addressLocality": "Montrose",
-      "addressRegion": "MI",
-      "postalCode": "48457",
-      "addressCountry": "US"
-    },
-    "url": "https://www.facebook.com/p/Montrose-Greenhouse-100063505872551/",
-    "description": "Full-service florist and seasonal greenhouse in Montrose, Michigan, open all four seasons with plants, flowers, herbs, and garden goods."
-  }
-  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="#top" aria-label="Montrose Greenhouse home">
-        <span class="brand-mark" aria-hidden="true">✿</span>
-        <span>Montrose Greenhouse <small>His & Herbs</small></span>
-      </a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">Menu</button>
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#seasons">Seasons</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#visit">Visit</a>
-      </nav>
+  <main>
+    <div class="thank-you-card">
+      <span class="eyebrow">Request received</span>
+      <h1>Thank you!</h1>
+      <p>Your message has been submitted. Montrose Greenhouse — His & Herbs will follow up as soon as possible.</p>
+      <div class="hero-actions" style="justify-content: center; margin-top: 1.5rem;">
+        <a class="btn btn-primary" href="../">Back to home</a>
+        <a class="btn btn-secondary" href="tel:+18106394750">Call (810) 639-4750</a>
+      </div>
     </div>
-  </header>
-
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <span class="eyebrow">🌿 Full-service florist + four-season greenhouse</span>
-          <h1>Grow something beautiful.</h1>
-          <p>Montrose Greenhouse — His & Herbs is a welcoming country garden shoppe in Montrose, Michigan, growing and selling exceptional plants of all types, with flowers, herbs, seasonal color, and thoughtful gifts year-round.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:+18106394750">Call (810) 639-4750</a>
-            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=11440+Vienna+Rd,+Montrose,+MI+48457" target="_blank" rel="noopener">Get directions</a>
-          </div>
-          <div class="quick-info" aria-label="Business highlights">
-            <div class="quick-card"><strong>Located in Montrose</strong><span>11440 Vienna Rd</span></div>
-            <div class="quick-card"><strong>Open all seasons</strong><span>Call for current hours</span></div>
-            <div class="quick-card"><strong>Plants + flowers</strong><span>Greenhouse, florist, herbs & gifts</span></div>
-          </div>
-        </div>
-        <div class="hero-photos" aria-hidden="true">
-          <div class="photo-stack photo-main"><img src="assets/storefront.webp" alt="Montrose Greenhouse storefront surrounded by plants" /></div>
-          <div class="photo-stack photo-small"><img src="assets/greenhouse-mums.webp" alt="Rows of colorful mums at Montrose Greenhouse" /></div>
-          <div class="floating-card">
-            <strong>Fresh color for every season</strong>
-            <p>From spring baskets to fall mums, stop in for plants that feel personal, local, and cared for.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container about-grid">
-        <div class="about-image"><img src="assets/montrose-sign.webp" alt="Montrose Greenhouse His and Herbs sign" /></div>
-        <div class="about-panel">
-          <span class="eyebrow">About the greenhouse</span>
-          <h2>A local place for gardeners, gift-givers, and flower lovers.</h2>
-          <p>Whether you are planting a full garden, picking up a thoughtful arrangement, or just looking for something bright for the porch, Montrose Greenhouse — His & Herbs offers friendly help and a beautiful variety of plants, flowers, herbs, and garden goods.</p>
-          <p>The greenhouse is seasonal in selection but open all four seasons, with inventory changing throughout the year for spring planting, summer color, fall décor, winter greenery, and everyday floral needs.</p>
-          <div class="feature-list">
-            <div class="feature-item"><span>✓</span><span>Custom floral arrangements</span></div>
-            <div class="feature-item"><span>✓</span><span>Annuals, perennials & herbs</span></div>
-            <div class="feature-item"><span>✓</span><span>Hanging baskets & patio pots</span></div>
-            <div class="feature-item"><span>✓</span><span>Seasonal décor & garden gifts</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
-      <div class="container">
-        <div class="section-head">
-          <h2>What they offer</h2>
-          <p>A simple website structure that makes it easy for customers to understand the business quickly, call, get directions, and plan a visit before seasonal inventory sells out.</p>
-        </div>
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">💐</div>
-            <h3>Full-Service Florist</h3>
-            <p>Fresh arrangements for birthdays, sympathy, holidays, celebrations, everyday gifts, and special requests.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">🌸</div>
-            <h3>Seasonal Greenhouse</h3>
-            <p>Locally grown color, hanging baskets, flats, porch pots, mums, and greenhouse favorites for every season.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">🌿</div>
-            <h3>Herbs & Garden Starts</h3>
-            <p>Herbs, vegetables, strawberry plants, perennials, pollinator favorites, and garden-ready plants.</p>
-          </article>
-          <article class="service-card">
-            <div class="icon" aria-hidden="true">🎁</div>
-            <h3>Gifts & Garden Goods</h3>
-            <p>Country garden shop items, seeds, bulbs, natural goods, seasonal décor, and unique finds for plant lovers.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="seasons">
-      <div class="container">
-        <div class="section-head">
-          <h2>Four seasons of color</h2>
-          <p>The products change with the season, so the site keeps the message flexible while still showing customers what to expect.</p>
-        </div>
-        <div class="season-strip">
-          <article class="season-card">
-            <img src="assets/strawberry-starts.webp" alt="Strawberry plants in trays" />
-            <div><h3>Spring</h3><p>Garden starts, herbs, strawberries, annuals, hanging baskets, and fresh planting inspiration.</p></div>
-          </article>
-          <article class="season-card">
-            <img src="assets/hanging-baskets.webp" alt="Hanging flower baskets inside the greenhouse" />
-            <div><h3>Summer</h3><p>Bold porch color, patio planters, pollinator plants, and bright floral arrangements.</p></div>
-          </article>
-          <article class="season-card">
-            <img src="assets/greenhouse-mums.webp" alt="Rows of fall mums" />
-            <div><h3>Fall</h3><p>Mums, autumn porch décor, seasonal accents, and warm harvest colors.</p></div>
-          </article>
-          <article class="season-card">
-            <img src="assets/garden-shop.webp" alt="Garden shop shelves with seeds and goods" />
-            <div><h3>Winter</h3><p>Holiday greenery, florist designs, bulbs, gifts, and indoor plant ideas.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery" id="gallery">
-      <div class="container">
-        <div class="section-head">
-          <h2>Step inside</h2>
-          <p>Photo sections like this help customers instantly feel the character of the greenhouse before they visit.</p>
-        </div>
-        <div class="gallery-grid">
-          <figure class="gallery-item large">
-            <img src="assets/hanging-baskets.webp" alt="Colorful hanging baskets and flowers inside greenhouse" />
-            <figcaption class="gallery-caption">Hanging baskets, porch color, and floral displays</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="assets/inside-greenhouse-plants.webp" alt="Potted plants inside greenhouse" />
-            <figcaption class="gallery-caption">Greenhouse-grown plants</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="assets/outdoor-plant-tables.webp" alt="Outdoor plant tables with herbs and flowers" />
-            <figcaption class="gallery-caption">Outdoor garden tables</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="assets/garden-shop.webp" alt="Country garden shop shelves" />
-            <figcaption class="gallery-caption">His & Herbs shoppe</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="assets/storefront.webp" alt="Montrose Greenhouse storefront" />
-            <figcaption class="gallery-caption">A welcoming local stop</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="visit">
-      <div class="container visit-grid">
-        <div class="contact-card">
-          <h2>Plan your visit</h2>
-          <p>Inventory can change quickly by season, weather, and holiday demand. Call ahead for current hours, special orders, floral requests, and product availability.</p>
-          <div class="contact-list">
-            <div class="contact-row"><span aria-hidden="true">📍</span><div><b>Address</b><a href="https://www.google.com/maps/search/?api=1&query=11440+Vienna+Rd,+Montrose,+MI+48457" target="_blank" rel="noopener">11440 Vienna Rd, Montrose, MI 48457</a></div></div>
-            <div class="contact-row"><span aria-hidden="true">☎️</span><div><b>Phone</b><a href="tel:+18106394750">(810) 639-4750</a></div></div>
-            <div class="contact-row"><span aria-hidden="true">🌐</span><div><b>Social</b><a href="https://www.facebook.com/p/Montrose-Greenhouse-100063505872551/" target="_blank" rel="noopener">Follow on Facebook</a></div></div>
-          </div>
-          <a class="btn btn-secondary" href="tel:+18106394750">Call about availability</a>
-        </div>
-        <iframe class="map-card" title="Map to Montrose Greenhouse" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=11440%20Vienna%20Rd%2C%20Montrose%2C%20MI%2048457&output=embed"></iframe>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <div class="cta-card">
-          <div>
-            <h2>Need flowers or plants today?</h2>
-            <p>Give Montrose Greenhouse — His & Herbs a call to ask about current greenhouse selection, floral orders, seasonal items, and what is blooming now.</p>
-          </div>
-          <a class="btn btn-secondary" href="tel:+18106394750">Call (810) 639-4750</a>
-        </div>
-      </div>
-    </section>
   </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Montrose Greenhouse — His & Herbs. All rights reserved.</div>
-      <div><a href="#top">Back to top</a></div>
-    </div>
-  </footer>
-
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    menuBtn.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuBtn.textContent = isOpen ? 'Close' : 'Menu';
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.textContent = 'Menu';
-      });
-    });
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

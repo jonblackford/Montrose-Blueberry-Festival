@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# This keeps the site extensionless and makes the thank-you page work cleanly.
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you/"
+  status = 301
