@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Montrose Blueberry Festival | August 9–16, 2026</title>
+  <meta name="description" content="A modern, approachable redesign concept for the Montrose Blueberry Festival website with schedule filters, event highlights, applications, vendors, sponsors, and contact information." />
+  <meta name="theme-color" content="#3150A6" />
+  <link rel="preconnect" href="https://static.wixstatic.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Montrose Blueberry Festival home">
+        <span class="brand-mark" aria-hidden="true">🫐</span>
+        <span>
+          <strong>Montrose Blueberry Festival</strong>
+          <small>Montrose, Michigan</small>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#schedule">Schedule</a>
+        <a href="#events">Events</a>
+        <a href="#applications">Applications</a>
+        <a href="#vendors">Vendors</a>
+        <a href="#sponsors">Sponsors</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-pad">
+      <div class="berry-orb orb-one" aria-hidden="true"></div>
+      <div class="berry-orb orb-two" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">55th Annual Community Celebration</p>
+          <h1>Blueberries, parades, pancakes, music, vendors, and hometown tradition.</h1>
+          <p class="hero-text">Join Montrose for a full week of festival favorites from Sunday, August 9 through Sunday, August 16, 2026.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#schedule">View the schedule</a>
+            <a class="button ghost" href="#applications">Get applications</a>
+          </div>
+          <dl class="hero-facts" aria-label="Festival quick facts">
+            <div><dt>Dates</dt><dd>Aug. 9–16, 2026</dd></div>
+            <div><dt>Location</dt><dd>Montrose, MI</dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:18106393475">(810) 639-3475</a></dd></div>
+          </dl>
+        </div>
+        <div class="hero-card reveal" aria-label="Featured festival image and countdown">
+          <img src="https://static.wixstatic.com/media/3cd0da_fd05cd73c44945819a7fe22a8183eb8b~mv2_d_2816_2112_s_2.jpg/v1/fill/w_900,h_620,al_c,q_90,enc_auto/3cd0da_fd05cd73c44945819a7fe22a8183eb8b~mv2_d_2816_2112_s_2.jpg" alt="Colorful Montrose Blueberry Festival mural artwork" />
+          <div class="countdown-card">
+            <span>Festival begins in</span>
+            <strong id="countdown">Loading…</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad intro" id="about">
+      <div class="wrap split">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About the festival</p>
+          <h2>A volunteer-powered tradition with deep roots.</h2>
+        </div>
+        <div class="intro-copy reveal">
+          <p>The Montrose Blueberry Festival began with a simple purpose: improve quality of life in the Montrose area, support recreational facilities, and strengthen the community through activities and programs that bring people together.</p>
+          <p>Today, the festival continues as a symbol of local pride, community volunteerism, and small-town fun.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad quick-links">
+      <div class="wrap cards-three">
+        <a class="quick-card reveal" href="#schedule">
+          <span>📅</span>
+          <h3>Plan your week</h3>
+          <p>Filter the full schedule by day, category, and keyword.</p>
+        </a>
+        <a class="quick-card reveal" href="#vendors">
+          <span>🛍️</span>
+          <h3>Find vendors</h3>
+          <p>Search the marketplace and food vendor list quickly.</p>
+        </a>
+        <a class="quick-card reveal" href="#contact">
+          <span>🤝</span>
+          <h3>Volunteer or sponsor</h3>
+          <p>Reach out to help, sponsor, or add a community event.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-pad" id="events">
+      <div class="wrap">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">2026 festival highlights</p>
+          <h2>Something for every age, every day.</h2>
+          <p>Explore some of the biggest festival traditions and crowd favorites.</p>
+        </div>
+        <div class="feature-grid" id="feature-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section-pad schedule-section" id="schedule">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Schedule of events</p>
+          <h2>Find what is happening, when, and where.</h2>
+          <p>Use the filters to narrow the schedule. Clear filters anytime to view everything.</p>
+        </div>
+
+        <div class="filter-panel reveal" role="search" aria-label="Schedule filters">
+          <label>
+            <span>Search schedule</span>
+            <input id="schedule-search" type="search" placeholder="Try parade, pancake, vendors…" />
+          </label>
+          <label>
+            <span>Day</span>
+            <select id="day-filter">
+              <option value="all">All days</option>
+            </select>
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="category-filter">
+              <option value="all">All categories</option>
+            </select>
+          </label>
+          <button class="button soft" id="reset-filters" type="button">Reset</button>
+        </div>
+
+        <div class="schedule-meta reveal">
+          <span id="result-count">Showing all events</span>
+          <span>Local groups may contact the festival to list community events.</span>
+        </div>
+
+        <div class="timeline" id="schedule-list" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section-pad applications-section" id="applications">
+      <div class="wrap split gap-large">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Applications</p>
+          <h2>Everything in one organized application hub.</h2>
+          <p>Food vendor applications are handled by email. All other applications can be grouped by events, contests, vendors, and sponsorship needs.</p>
+          <a class="button primary" href="mailto:montroseblueberryfestival@hotmail.com?subject=Blueberry%20Festival%20Application%20Question">Ask about an application</a>
+        </div>
+        <div class="application-board reveal" id="application-board"></div>
+      </div>
+    </section>
+
+    <section class="section-pad vendors-section" id="vendors">
+      <div class="wrap">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">Marketplace & food vendors</p>
+          <h2>Search the festival vendor list.</h2>
+          <p>This concept keeps the vendor page easier to browse on phones and during the festival.</p>
+        </div>
+        <div class="vendor-search reveal">
+          <input id="vendor-search" type="search" placeholder="Search vendor name or booth number…" />
+          <span id="vendor-count"></span>
+        </div>
+        <div class="vendor-layout">
+          <div class="vendor-card reveal">
+            <h3>Marketplace Vendors</h3>
+            <div class="tag-list" id="marketplace-vendors"></div>
+          </div>
+          <div class="vendor-card reveal">
+            <h3>Food & Special Vendors</h3>
+            <div class="tag-list" id="food-vendors"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad sponsors-section" id="sponsors">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Sponsors</p>
+          <h2>Powered by local businesses, families, and community partners.</h2>
+          <p>Thank you to the organizations and individuals that help make the festival possible.</p>
+        </div>
+        <div class="sponsor-spotlight reveal">
+          <span>Presenting Sponsor</span>
+          <strong>ChoiceOne Bank</strong>
+        </div>
+        <div class="sponsor-grid reveal" id="sponsor-grid"></div>
+      </div>
+    </section>
+
+    <section class="section-pad news-section" id="news">
+      <div class="wrap split gap-large">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Latest notes</p>
+          <h2>Keep visitors updated without overwhelming them.</h2>
+          <p>Use this area for featured announcements, registration reminders, schedule changes, and weather-related updates.</p>
+        </div>
+        <div class="news-list reveal" id="news-list"></div>
+      </div>
+    </section>
+
+    <section class="section-pad contact-section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Questions, ideas, volunteers, or sponsorships?</h2>
+          <p>Send an email or leave a voicemail. During the off-season, the office is not staffed daily, but voicemail is checked weekly.</p>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:montroseblueberryfestival@hotmail.com">Email the festival</a>
+            <a class="button ghost light" href="tel:18106393475">Call (810) 639-3475</a>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <h3>Montrose Blueberry Festival, Inc.</h3>
+          <p><strong>Mailing Address</strong><br />P.O. Box 316<br />Montrose, MI 48457-0316</p>
+          <p><strong>Email</strong><br /><a href="mailto:montroseblueberryfestival@hotmail.com">montroseblueberryfestival@hotmail.com</a></p>
+          <p><strong>Phone</strong><br /><a href="tel:18106393475">(810) 639-3475</a></p>
+          <a class="text-link" href="https://www.facebook.com/Montrose-Blueberry-Festival-125414364166744/" target="_blank" rel="noopener">Visit Facebook</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <p>© <span id="year"></span> Montrose Blueberry Festival redesign concept.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
